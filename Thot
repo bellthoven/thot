@@ -1,0 +1,3 @@
+import thot
+
+thot.main()
