@@ -19,13 +19,18 @@ class ThotProject(ThotPlugin):
 			help="Sets the output path for the project.", dest="output")
 		optparser.add_option('-f', '--format', action="append", choices=('html', 'pdf'),
 			help="Sets the output format", dest="format")
+		optparser.add_option('-c', '--create-project', action="store_true",
+			help="Sets the output format", dest="create_project")
+		return optparser
 	
 	def on_after_parse_args(self, optparser, options):
 		opt = OptionsValidator(options)
-		if opt.is_valid():
-			return True
-		else:
-			optparser.error(opt.get_error())
+		errors = []
+		try:
+			opt.validate()
+		except ValueError as e:
+			errors.append(e)
+		return errors
 	
 	def run(self, options):
 		project = Project(options.project_path)
@@ -34,19 +39,13 @@ class ThotProject(ThotPlugin):
 class OptionsValidator(object):
 
 	_options = None
-	_error = None
 	
 	def __init__(self, options):
 		self._options = options
 	
-	def is_valid(self):
-		try:
-			self.validate_project_path()
-			self.validate_output()
-			return True
-		except ValueError as e:
-			self._error = str(e)
-			return False
+	def validate(self):
+		self.validate_project_path()
+		self.validate_output()
 	
 	def get_error(self):
 		return self._error

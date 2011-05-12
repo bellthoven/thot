@@ -23,7 +23,6 @@ class Application(object):
 		(self._options,_) = parser.parse_args(self.args)
 		results = self._event_handler.dispatch('on_after_parse_args', [parser, self._options])
 		for plugin_result in results:
-			print(plugin_result)
 			if ValueError in list(plugin_result):
 				for result in plugin_results:
 					if type(result) == ValueError: raise result
