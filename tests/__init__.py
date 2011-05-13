@@ -14,6 +14,3 @@ if __name__ == '__main__':
 			except ImportError as e:
 				print(e)
 	unittest.main()
-#	runner = unittest.TextTestRunner()
-#	suite = unittest.TestSuite(alltests)
-#	runner.run(suite)
