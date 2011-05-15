@@ -6,7 +6,7 @@ env :
 	python setup.py develop --install-dir=$(PYTHONPATH)
 
 test :
-	python -m unittest tests/*py
+	python -m unittest tests/*py tests/plugins/*/*py
 
 tests : test
 
