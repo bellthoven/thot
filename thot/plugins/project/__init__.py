@@ -11,8 +11,6 @@ class ThotProject(ThotPlugin):
 		return 'This is a project parser.'
 	
 	def on_before_parse_args(self, optparser):
-		optparser.add_option('-n', '--project-name', action="store", type="string",
-			help="Sets the name of the project. Default project's name is the project main folder's name.", dest="project_name")
 		optparser.add_option('-p', '--project-path', action="store", default=os.getcwd(),  type="string",
 			help="Sets the path for the project.", dest="project_path")
 		optparser.add_option('-o', '--output', action="store", default=os.getcwd(), type="string",
@@ -44,12 +42,15 @@ class OptionsValidator(object):
 		self._options = options
 	
 	def validate(self):
-		self.validate_project_path()
-		self.validate_output()
-	
-	def get_error(self):
-		return self._error
+		if self._options.create_project is None and self._options.format is None:
+			self.format = 'html'
 
+		self.validate_project_path()
+		if self._options.create_project:
+			self.validate_create_opts()
+		elif self._options.format:
+			self.validate_format_opts()
+	
 	def validate_project_path(self):
 		if not os.path.isdir(self._options.project_path):
 			raise ValueError('%s is not a valid path for the project.' % self._options.project_path)
@@ -69,3 +70,14 @@ class OptionsValidator(object):
 			raise ValueError('%s is not writable, so %s cannot be created.' % 
 				(parent_dir, os.path.basename(self._options.outpu)))
 	
+	def validate_create_opts(self):
+		if self._options.output is not None:
+			raise ValueError('Output path cannot be declared with --create-project')
+		elif self._options.format is not None:
+			raise ValueError('Format cannot be declared with --create-project')
+
+	def validate_format_opts(self):
+		if self._options.output is None:
+			raise ValueError('Output path must be declared with --output')
+		else:
+			self.validate_output()
