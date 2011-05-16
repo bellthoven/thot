@@ -32,7 +32,10 @@ class ThotProject(ThotPlugin):
 	
 	def run(self, options):
 		project = Project(options.project_path)
-		project.parse(options.format, options.output)
+		if options.create_project is not None:
+			project.create()
+		else:
+			project.parse(options.format, options.output)
 
 class OptionsValidator(object):
 
@@ -59,7 +62,6 @@ class OptionsValidator(object):
 	
 	def has_project_metadata(self, path):
 		return os.path.isdir(os.path.join(path, '.thot'))
-		
 	
 	def validate_output(self):
 		if os.path.isdir(self._options.output):
