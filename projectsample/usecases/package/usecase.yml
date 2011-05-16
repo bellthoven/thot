@@ -1,0 +1,9 @@
+Name: # Name of the use case
+Description: >
+	# The description briefly conveys the purpose of the use case.
+	# A single paragraph will suffice for this description.
+	# The description briefly conveys the purpose of the use case.
+	# A single paragraph will suffice for this description.
+Inherits: # Array of usecases
+Includes: # Array of usecases
+Performers: # Array of users

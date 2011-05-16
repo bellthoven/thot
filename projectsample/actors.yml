@@ -1,0 +1,14 @@
+# Describe each stakeholder in the system here by filling in the following table for each stakeholder.
+# Remember that stakeholder types can be as divergent as users, departments, and technical developers.
+# A thorough profile would cover the following topics for each type of stakeholder.
+Actor001:
+	Name: # User full name
+	Description:
+		# Brief description of the stakeholder
+	Responsabilities:
+		# List the stakeholder's key responsibilities with regards to the system being developed
+		# that is, their interest as a stakeholder.
+	SuccessCriteria:
+		# How does the stakeholder define success? 
+		# How is the stakeholder rewarded?
+	Type: # Final User, System, Machine, etc

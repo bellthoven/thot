@@ -1,0 +1,27 @@
+# List and briefly describe the product features. Features are the high-level capabilities of the system
+# that are necessary to deliver benefits to the users. Each feature is an externally desired service that
+# typically requires a series of inputs to achieve the desired result. For example,
+# a feature of a problem tracking system might be the ability to provide trending reports. As the use-case
+# model takes shape, update the description to refer to the use cases.
+
+# Because the Vision document is reviewed by a wide variety of involved personnel,
+# the level of detail needs to be general enough for everyone to understand. However,
+# enough detail must be available to provide the team with the information they need to create a use-case model.
+
+# To effectively manage application complexity, we recommend for any new system, or an increment to an existing system,
+# capabilities are abstracted to a high enough level so 25-99 features result. These features provide the fundamental basis
+# for product definition, scope management, and project management.
+# Each feature will be expanded in greater detail in the use-case model.
+
+# Throughout this section, each feature will be externally perceivable by users, operators or other external systems.
+# These features should include a description of functionality and any relevant usability issues that must be addressed.
+# The following guidelines apply:
+
+# Avoid design. Keep feature descriptions at a general level. Focus on capabilities needed and why (not how) they should be implemented.
+
+- Feature: # Feature's name
+  Description: # Feature's description
+  UseCases: # Array of use case identifiers
+- Feature: # Feature's name
+  Description: # Feature's description
+  UseCases: # Array of use case identifiers
