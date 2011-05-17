@@ -1,35 +1,35 @@
 Positioning:
-	Opportunity: >
-		# Briefly describe the business opportunity being met by this project.
-	ProblemStatement:
-		Problem: # describe the problem
-		Affects: # the stakeholders affected by the problem (array of actors)
-		Impact: # what is the impact of the problem?
-		Solution: # list some key benefits of a successful solution
-	ProductStatement:
-		For: # target customer (array of actors)
-		Who: # statement of the need or opportunity
-		What: # Product name and description
-		That: # statement of key benefit; that is, the compelling reason to buy
-		Unlike: # primary competitive alternative
-		Why: # statement of primary differentiation
+  Opportunity: >
+    # Briefly describe the business opportunity being met by this project.
+  ProblemStatement:
+    Problem: # describe the problem
+    Affects: # the stakeholders affected by the problem (array of actors)
+    Impact: # what is the impact of the problem?
+    Solution: # list some key benefits of a successful solution
+  ProductStatement:
+    For: # target customer (array of actors)
+    Who: # statement of the need or opportunity
+    What: # Product name and description
+    That: # statement of key benefit; that is, the compelling reason to buy
+    Unlike: # primary competitive alternative
+    Why: # statement of primary differentiation
 Product:
-	Overview: >
-		# This section provides a high level view of the product capabilities, interfaces to other applications,
-		# and systems configurations. This section usually consists of three subsections, as follows: 
-		#
-		# Product perspective 
-		#  Product functions 
-		#  Assumptions and dependencies
-	CostAndPricing: >
-		# For products sold to external customers and for many in- house applications,
-		# cost and pricing issues can directly impact the application's definition and implementation. In this section,
-		# record any cost and pricing constraints that are relevant. For example, distribution costs
-		# (# of diskettes, # of CD-ROMs, CD mastering) or other cost of goods sold constraints (manuals, packaging)
-		# may be material to the projects success, or irrelevant, depending on the nature of the application.
-	 LicensingAndInstallation: >
-		# Licensing and installation issues can also directly impact the development effort.
-		# For example, the need to support serializing, password security or network licensing will create additional
-		# requirements of the system that must be considered in the development effort.
-		#
-		# Installation requirements may also affect coding or create the need for separate installation software.
+  Overview:
+    # This section provides a high level view of the product capabilities, interfaces to other applications,
+    # and systems configurations. This section usually consists of three subsections, as follows: 
+    #
+    # Product perspective 
+    #  Product functions 
+    #  Assumptions and dependencies
+  Cost And Pricing:
+    # For products sold to external customers and for many in- house applications,
+    # cost and pricing issues can directly impact the application's definition and implementation. In this section,
+    # record any cost and pricing constraints that are relevant. For example, distribution costs
+    # (# of diskettes, # of CD-ROMs, CD mastering) or other cost of goods sold constraints (manuals, packaging)
+    # may be material to the projects success, or irrelevant, depending on the nature of the application.
+   LicensingAndInstallation:
+    # Licensing and installation issues can also directly impact the development effort.
+    # For example, the need to support serializing, password security or network licensing will create additional
+    # requirements of the system that must be considered in the development effort.
+    #
+    # Installation requirements may also affect coding or create the need for separate installation software.
