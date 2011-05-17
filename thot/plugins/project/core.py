@@ -1,8 +1,10 @@
 import os
+from thot.exporter import FileScanner,YamlContent
 
 class Project(object):
 
 	path = None
+	_known_files = ('project.yml', 'actors.yml', 'features.yml')
 
 	def __init__(self, path):
 		self.path = path
@@ -12,16 +14,14 @@ class Project(object):
 		self.creator.create(self.path)
 	
 	def parse(self, format, output):
-		self.parse_to_sphinx(output)
-		self.build(format, output)
-	
-	def parse_to_sphinx(self, output):
-		print("parse_to_sphinx")
-		pass
-	
-	def build(self, format, output):
-		print("build")
-		pass
+		scanner = FileScanner()
+		files = scanner.scan(self.path)
+		objects = []
+		for knownfile in self._known_files:
+			if knownfile in files:
+				fullfilepath = os.path.join(self.path, knownfile)
+				objects.append( YamlContent.objectify(fullfilepath) )
+		# TODO: parse objects =)
 
 class ProjectCreator(object):
 
