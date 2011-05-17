@@ -18,26 +18,24 @@ class TestFileScanner(unittest.TestCase):
 			result = fs.scan('tmp')
 			self.assertEqual(expected, result)
 	
-	def test_valid_yml_files(self):
-		with mock.patch("os.path.isfile") as mock_isfile:
-			mock_isfile.return_value = True
-			fs = exporter.FileScanner()
-			self.assertFalse(fs.is_valid_file("teste.yyml"))
-			self.assertTrue(fs.is_valid_file("teste.yml"))
-	
-	def test_objectify_yml_files(self):
-		with mock.patch("%s.open" % __name__, create=True) as mock_open:
-			mock_open.return_value = mock.Mock()
-			fs = exporter.FileScanner()
-			filename = "projectsample/project.yml"
-			obj = fs.objectify(filename)
-			self.assertIsInstance(obj, exporter.YamlContent)
-
-			obj = fs.objectify("something.txt")
-			self.assertFalse(obj)
-	
 
 class TestYamlContent(unittest.TestCase):
+
+	def test_objectify_yml_files(self):
+		with mock.patch("%s.open" % exporter.__name__, create=True) as mock_open:
+			mock_open.return_value = mock.MagicMock()
+			with mock.patch("yaml.load") as mock_yaml:
+				mock_yaml.return_value = ""
+				with mock.patch('os.path.isfile') as mock_isfile:
+					fs = exporter.FileScanner()
+					# Test
+					mock_isfile.return_value = True
+					obj = exporter.YamlContent.objectify('project.yml')
+					self.assertIsInstance(obj, exporter.YamlContent)
+
+					mock_isfile.return_value = False
+					obj = exporter.YamlContent.objectify("something.yml")
+					self.assertFalse(obj)
 
 	def setUp(self):
 		content = """

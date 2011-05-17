@@ -14,18 +14,17 @@ class FileScanner(object):
 					selectedFiles.append(f)
 		return selectedFiles
 
-	def is_valid_file(self, yamlfile):
-		return yamlfile.endswith('.yml') and os.path.isfile(yamlfile)
-	
-	def objectify(self, yamlfile):
-		if self.is_valid_file(yamlfile):
+
+class YamlContent(object):
+
+	@staticmethod
+	def objectify(yamlfile):
+		if os.path.isfile(yamlfile):
 			with open(yamlfile, "r") as f:
 				yamlcontent = f.read()
 				f.close()
 			return YamlContent(yamlfile, yamlcontent)
 		return False
-
-class YamlContent(object):
 	
 	def __init__(self, source, content):
 		self._source = source
