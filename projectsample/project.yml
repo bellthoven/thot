@@ -1,5 +1,5 @@
 Positioning:
-  Opportunity: >
+  Opportunity:
     # Briefly describe the business opportunity being met by this project.
   ProblemStatement:
     Problem: # describe the problem
@@ -21,7 +21,7 @@ Product:
     # Product perspective 
     #  Product functions 
     #  Assumptions and dependencies
-  Cost And Pricing:
+  CostAndPricing:
     # For products sold to external customers and for many in- house applications,
     # cost and pricing issues can directly impact the application's definition and implementation. In this section,
     # record any cost and pricing constraints that are relevant. For example, distribution costs
