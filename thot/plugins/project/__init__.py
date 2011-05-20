@@ -4,6 +4,8 @@ import os
 
 class ThotProject(ThotPlugin):
 	
+	objects = []
+	
 	def name(self):
 		return 'ThotProject'
 	
@@ -19,6 +21,8 @@ class ThotProject(ThotPlugin):
 			help="Sets the output format", dest="format")
 		optparser.add_option('-c', '--create-project', action="store_true",
 			help="Sets the output format", dest="create_project")
+		optparser.add_option('-v', '--vision-doc', action="store_true",
+			help="Exports the vision document", dest="vision_doc")
 		return optparser
 	
 	def on_after_parse_args(self, optparser, options):
@@ -30,12 +34,18 @@ class ThotProject(ThotPlugin):
 			errors.append(e)
 		return errors
 	
-	def run(self, options):
+	def on_register_objects(self, objs):
+		self.objects = objs
+
+	def on_parse(self, options):
 		project = Project(options.project_path)
-		if options.create_project is not None:
+		if options.create_project:
 			project.create()
-		else:
-			project.parse(options.format, options.output)
+			return None
+
+		srcdir = os.path.join(options.output, 'source')
+		if options.vision_doc:
+			project.export_vision(self.objects, srcdir)
 
 class OptionsValidator(object):
 

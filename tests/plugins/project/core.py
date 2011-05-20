@@ -1,17 +1,17 @@
 import unittest
-from mock import Mock
+from mock import Mock,patch
 from thot.plugins.project.core import ProjectCreator
 
 class TestProjectCreator(unittest.TestCase):
 
-	def setUp(self):
-		self.creator = ProjectCreator()
-	
 	def test_create_project(self):
-		self.creator.create_root_dir = Mock()
-		self.creator.create_metadata_dir = Mock()
-		self.creator.create_metadata_file = Mock()
-		self.creator.create('/tmp/aaa')
-		self.creator.create_root_dir.assert_called_once_with('/tmp/aaa')
-		self.creator.create_metadata_dir.assert_called_once_with('/tmp/aaa')
-		self.creator.create_metadata_file.assert_called_once_with('/tmp/aaa')
+		with patch("os.path.isdir") as mock_isdir:
+			# Force os.mkdir execution
+			mock_isdir.return_value = False
+			with patch("os.mkdir") as mock_mkdir:
+				self.creator = ProjectCreator()
+				self.creator.mkdir = Mock()
+				self.creator.create_metadata_file = Mock()
+				self.creator.create('/tmp/aaa')
+				self.creator.mkdir.assert_called_with('/tmp/aaa/.thot')
+				self.creator.create_metadata_file.assert_called_with('/tmp/aaa')

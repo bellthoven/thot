@@ -14,13 +14,13 @@ class FileScanner(object):
 					selectedFiles.append(f)
 		return selectedFiles
 
-
 class YamlContent(object):
 
 	@staticmethod
-	def objectify(yamlfile):
-		if os.path.isfile(yamlfile):
-			with open(yamlfile, "r") as f:
+	def objectify(yamlfile, project_base):
+		filepath = os.path.join(project_base, yamlfile)
+		if os.path.isfile(filepath):
+			with open(filepath, "r") as f:
 				yamlcontent = f.read()
 				f.close()
 			return YamlContent(yamlfile, yamlcontent)

@@ -1,5 +1,6 @@
 import os
 from thot.plugins import PluginManager
+from thot.exporter import FileScanner,YamlContent
 import optparse
 
 class Application(object):
@@ -17,7 +18,7 @@ class Application(object):
 		self._plugin_manager.load_plugins()
 		self._event_handler = EventHandler(self._plugin_manager.plugins())
 
-	def _parse_args(self):
+	def parse_args(self):
 		parser = optparse.OptionParser()
 		self._event_handler.dispatch('on_before_parse_args', [parser])
 		(self._options,_) = parser.parse_args(self.args)
@@ -26,13 +27,28 @@ class Application(object):
 			if ValueError in list(plugin_result):
 				for result in plugin_results:
 					if type(result) == ValueError: raise result
+	
+	def register_objects(self):
+		fs = FileScanner()
+		foundfiles = fs.scan(self._options.project_path)
+		objs = []
+		for filepath in foundfiles:
+			obj = YamlContent.objectify(filepath, self._options.project_path)
+			if obj:
+				objs.append(obj)
+		self._event_handler.dispatch('on_register_objects', [objs])
+	
+	def parse(self):
+		self._event_handler.dispatch('on_before_parse', [])
+		self._event_handler.dispatch('on_parse', [self._options])
+		self._event_handler.dispatch('on_after_parse', [])
 
 	def run(self):
 		if not self._initialized:
 			self.bootstrap()
-		self._parse_args()
-		for plugin in self._plugin_manager.plugins():
-			plugin.run(self._options)
+		self.parse_args()
+		self.register_objects()
+		self.parse()
 
 class EventHandler(object):
 
@@ -49,7 +65,8 @@ class EventHandler(object):
 		else:
 			ret = dict()
 			for plugin in self._plugins:
-				ret[plugin.name()] = getattr(plugin, event_name)(*args)
+				if hasattr(plugin, event_name):
+					ret[plugin.name()] = getattr(plugin, event_name)(*args)
 		return ret
 	
 	def on_before_parse_args(self, parser):
