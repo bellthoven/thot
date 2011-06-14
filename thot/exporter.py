@@ -33,7 +33,10 @@ class YamlContent(object):
 	def source(self):
 		return self._source
 	
-	def get(self, index):
+	def get(self, index=None):
+		if index is None:
+			return self.content.keys()
+
 		elements = index.split(".")
 		curr = self.content
 		for el in elements:
