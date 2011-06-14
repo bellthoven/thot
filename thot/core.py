@@ -2,6 +2,7 @@ import os
 from thot.plugins import PluginManager
 from thot.exporter import FileScanner,YamlContent
 import optparse
+import thot.utils
 
 class Application(object):
 	_initialized = False
@@ -23,17 +24,19 @@ class Application(object):
 		self._event_handler.dispatch('on_before_parse_args', [parser])
 		(self._options,_) = parser.parse_args(self.args)
 		results = self._event_handler.dispatch('on_after_parse_args', [parser, self._options])
-		for plugin_result in results:
-			if ValueError in list(plugin_result):
-				for result in plugin_results:
-					if type(result) == ValueError: raise result
+		for plugin_result in results.values():
+			for result in plugin_result:
+				if isinstance(result, ValueError):
+					thot.utils.print_err(result)
+					thot.utils.exit( thot.utils.ERROR_EXIT )
 	
 	def register_objects(self):
 		fs = FileScanner()
-		foundfiles = fs.scan(self._options.project_path)
+		srcdir = os.path.join(self._options.project_path, self._options.source_dir)
+		foundfiles = fs.scan(srcdir)
 		objs = []
 		for filepath in foundfiles:
-			obj = YamlContent.objectify(filepath, self._options.project_path)
+			obj = YamlContent.objectify(filepath, srcdir)
 			if obj:
 				objs.append(obj)
 		self._event_handler.dispatch('on_register_objects', [objs])
