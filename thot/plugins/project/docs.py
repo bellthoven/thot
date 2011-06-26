@@ -7,7 +7,7 @@ class VisionDocument(ThotDocument):
 	_known_files = ('project.yml', 'actors.yml', 'features.yml')
 	
 	def __init__(self, objects):
-		super(VisionDocument, self).__init__();
+		super(VisionDocument, self).__init__("vision.rst", "Vision Document")
 		self.objects = self.filter_objects(objects)
 	
 	def filter_objects(self, objects):
@@ -20,65 +20,91 @@ class VisionDocument(ThotDocument):
 	def _export_project_data(self):
 		try:
 			project = self.objects['project.yml']
-			self.doc.start("section")
-			self.doc.append("title", "Positioning")
-			self.doc.start("section")
+			self.start("section")
+			self.append("title", "Positioning")
+			self.start("section")
 			opportunity = project.get("Positioning.Opportunity")
 			if opportunity:
-				self.doc.append("title", "Oportunity")
-				self.doc.append("paragraph", opportunity)
-			self.doc.end()
+				self.append("title", "Oportunity")
+				self.append("paragraph", opportunity)
+			self.end()
 			problem = project.get("Positioning.ProblemStatement")
 			if problem:
 				for part in ["Problem", "Affects", "Impact", "Solution"]:
 					if part in problem.keys() and problem[part]:
-						self.doc.start("section")
-						self.doc.append("title", part)
-						self.doc.append("paragraph", problem[part])
-						self.doc.end() # section
-			self.doc.end() # section
+						self.start("section")
+						self.append("title", part)
+						self.append("paragraph", problem[part])
+						self.end() # section
+			self.end() # section
 		except KeyError:
 			pass
 
 	def _export_actors_data(self):
 		try:
 			actors = self.objects['actors.yml']
-			self.doc.start("section")
-			self.doc.append("title", "Stakeholders and User Descriptions")
+			self.start("section")
+			self.append("title", "Stakeholders and User Descriptions")
 			for actor in actors.get():
 				actor_data = actors.get(actor)
-				self.doc.start("section")
-				self.doc.append("title", actor_data['Name'])
-				self.doc.append("paragraph", actor_data['Description'])
-				self.doc.start("bullet_list", bullet="*")
+				self.start("section")
+				self.append("title", actor_data['Name'])
+				self.append("paragraph", actor_data['Description'])
+				self.start("bullet_list", bullet="*")
 				for resp in actor_data['Responsabilities']:
-					self.doc.append("list_item", resp)
-				self.doc.end() # bullet_list
-				self.doc.end() # section
-			self.doc.end() # section
+					self.append("list_item", resp)
+				self.end() # bullet_list
+				self.end() # section
+			self.end() # section
 		except KeyError:
 			pass
 
 	def _export_features_data(self):
 		try:
 			features = self.objects['features.yml']
-			self.doc.start("section")
-			self.doc.append("title", "Features")
-			self.doc.start("definition_list")
-			for feature in features.get('Features'):
-				self.doc.append("item_list", feature['Feature'])
-				self.doc.end() # section
-			self.doc.end() # section
+			self.start("section")
+			self.append("title", "Features")
+			self.start("definition_list")
+			for feature in features.get():
+				self.start("definition_list_item")
+				self.append("term", features.get("%s.Name" % feature))
+				self.append("definition", features.get("%s.Description" % feature))
+				self.end() # definition_list_item
+			self.end() # definition_list
+			self.end() # section
 		except KeyError:
 			pass
 	
-	def export(self, output):
-		docpath = os.path.join(output, "vision.rst")
-		self.doc = ThotDocumentBuilder(docpath, title="Vision")
-		self.doc.append("title", "Vision Document")
+	def build(self):
+		docpath = os.path.join(output, )
 		self._export_project_data()
 		self._export_actors_data()
 		self._export_features_data()
-		content = self.generate_rst(self.doc)
-		print(content)
-		self.create_file(docpath, content)
+
+class Glossary(ThotDocument):
+
+	def __init__(self, objects):
+		super(Glossary, self).__init__('glossary.rst', "Glossary")
+		self.objects= self.filter_objects(objects)
+	
+	def filter_objects(self, objects):
+		try:
+			for obj in objects:
+				if obj.source() == 'glossary.yml':
+					return {'glossary.yml': obj}
+		except KeyError:
+			pass
+		return {}
+
+	def build(self):
+		try:
+			self.start("definition_list")
+			glossary = self.objects['glossary.yml']
+			for term in glossary.get():
+				self.start("definition_list_item")
+				self.append("term", glossary.get("%s.Name" % feature))
+				self.append("definition", glossary.get("%s.Description" % feature))
+				self.end() # definition_list_item
+			self.end() # definition_list
+		except KeyError:
+			pass
