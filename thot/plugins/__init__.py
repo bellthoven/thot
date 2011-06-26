@@ -8,12 +8,20 @@ class ThotPlugin(object):
 	
 	def bootstrap(self): pass
 
-	def on_before_parse_args(self, optgroup): pass
+	def on_before_parse_args(self, optparser): pass
 
 	def on_after_parse_args(self, options): return dict()
-	
-	def run(self, options): pass
-	
+
+	def on_register_documents(self, options): pass
+
+	def on_before_build_document(self, document): pass
+
+	def on_after_build_document(self, document): pass
+
+	def on_before_export_document(self, document): pass
+
+	def on_after_export_document(self, document): pass
+
 	def __str__(self):
 		return self.name()
 
@@ -21,6 +29,7 @@ class PluginManager(object):
 	_loaded = []
 	_builtins = (
 		('thot.plugins.project', 'ThotProject'),
+		('thot.plugins.requirements', 'ThotRequirements'),
 	)
 
 	def _load_builtin_plugins(self):
