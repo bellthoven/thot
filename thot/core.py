@@ -23,14 +23,21 @@ class Application(object):
 		parser = optparse.OptionParser()
 		self._event_handler.dispatch('on_before_parse_args', [parser])
 		(self._options,_) = parser.parse_args(self.args)
-		results = self._event_handler.dispatch('on_after_parse_args', [parser, self._options])
+		results = self._event_handler.dispatch('on_after_parse_args', [self._options])
 		for plugin_result in results.values():
 			for result in plugin_result:
 				if isinstance(result, ValueError):
 					thot.utils.print_err(result)
 					thot.utils.exit( thot.utils.ERROR_EXIT )
 	
-	def register_objects(self):
+	def register_documents(self):
+		all_docs = self._event_handler.dispatch('on_register_documents', [self._options])
+		self.documents = []
+		for plugname in all_docs:
+			docs = all_docs[plugname]
+			self.documents.extend(docs)
+	
+	def build_documents(self):
 		fs = FileScanner()
 		srcdir = os.path.join(self._options.project_path, self._options.source_dir)
 		foundfiles = fs.scan(srcdir)
@@ -39,19 +46,21 @@ class Application(object):
 			obj = YamlContent.objectify(filepath, srcdir)
 			if obj:
 				objs.append(obj)
-		self._event_handler.dispatch('on_register_objects', [objs])
+		for doc in self.documents:
+			docinstance = doc(objs)
+			self._event_handler.dispatch('on_before_build_document', [docinstance])
+			docinstance.build()
+			self._event_handler.dispatch('on_after_build_document', [docinstance])
+			self._event_handler.dispatch('on_before_export_document', [docinstance])
+			docinstance.export("")
+			self._event_handler.dispatch('on_after_export_document', [docinstance])
 	
-	def parse(self):
-		self._event_handler.dispatch('on_before_parse', [])
-		self._event_handler.dispatch('on_parse', [self._options])
-		self._event_handler.dispatch('on_after_parse', [])
-
 	def run(self):
 		if not self._initialized:
 			self.bootstrap()
 		self.parse_args()
-		self.register_objects()
-		self.parse()
+		self.register_documents()
+		self.build_documents()
 
 class EventHandler(object):
 
