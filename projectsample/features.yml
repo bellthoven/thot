@@ -19,9 +19,6 @@
 
 # Avoid design. Keep feature descriptions at a general level. Focus on capabilities needed and why (not how) they should be implemented.
 
-- Feature: # Feature's name
-  Description: # Feature's description
-  UseCases: # Array of use case identifiers
-- Feature: # Feature's name
-  Description: # Feature's description
-  UseCases: # Array of use case identifiers
+# Feature ID: Feature description
+Feature1: # Describe the feature
+Feature2: # Describe the feature
