@@ -1,21 +1,4 @@
 import os
-from thot.exporter import FileScanner,YamlContent
-from thot.plugins.project.docs import VisionDocument
-
-class Project(object):
-
-	path = None
-
-	def __init__(self, path):
-		self.path = path
-	
-	def create(self):
-		self.creator = ProjectCreator()
-		self.creator.create(self.path)
-	
-	def export_vision(self, objects, output):
-		vision = VisionDocument(objects)
-		vision.export(output)
 
 class ProjectCreator(object):
 
