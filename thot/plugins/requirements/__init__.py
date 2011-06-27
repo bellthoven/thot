@@ -18,11 +18,8 @@ class ThotRequirements(ThotPlugin):
 		return optparser
 
 	def on_register_documents(self, options, objs):
-		project_reqs = re.compile('^requirements/[^/]+/.+\.yml$')
-		req_objs = []
-		for obj in objs:
-			if project_reqs.match(obj.source()):
-				req_objs.append(obj)
+		reqregex = re.compile('^requirements/([^/]+/)?.+\.yml$')
+		req_objs = filter(lambda obj: reqregex.match(obj.source()), objs)
 
 		docs = []
 		if options.sup_specs_doc:

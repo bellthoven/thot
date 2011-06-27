@@ -1,5 +1,4 @@
 from thot.docs import ThotDocument
-import re
 
 class SupplementarySpecification(ThotDocument):
 
@@ -91,7 +90,7 @@ class SingleRequirementDocument(ThotDocument):
 				for uc in usecases:
 					self.start("list_item")
 					self.append("paragraph", ":doc:`%s`" % "/".join(uc))
-					self.end() # bullet_list
+					self.end() # list_item
 				self.end() # bullet_list
 			else:
 				self.append("paragraph", "No use cases implements this feature.")
