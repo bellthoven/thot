@@ -12,7 +12,7 @@ class ThotPlugin(object):
 
 	def on_after_parse_args(self, options): return dict()
 
-	def on_register_documents(self, options): pass
+	def on_register_documents(self, options, objs): pass
 
 	def on_before_build_document(self, document): pass
 
