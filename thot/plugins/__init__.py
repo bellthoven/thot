@@ -30,6 +30,7 @@ class PluginManager(object):
 	_builtins = (
 		('thot.plugins.project', 'ThotProject'),
 		('thot.plugins.requirements', 'ThotRequirements'),
+		('thot.plugins.usecases', 'ThotUseCase'),
 	)
 
 	def _load_builtin_plugins(self):
