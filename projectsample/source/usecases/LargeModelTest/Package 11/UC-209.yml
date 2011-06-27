@@ -7,6 +7,10 @@ Description: This is Use case 11-9.  This is the description for the use case.  
   to give it something in order to create a large use case model.  This is the end
   of the use case description.
 Name: Use case 11-9
+PostConditions:
+- Sample success guarantee
+PreConditions:
+- Sample precondition
 Scenarios:
   Description: This is the description of the main success scenario.  In addition
     to the description, the main success scenario will also have scenario steps and
