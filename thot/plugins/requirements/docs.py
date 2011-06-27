@@ -1,4 +1,4 @@
-from thot.docs import ThotDocument,ThotDocumentBuilder
+from thot.docs import ThotDocument
 import re
 
 class SupplementarySpecification(ThotDocument):
@@ -10,16 +10,15 @@ class SupplementarySpecification(ThotDocument):
 	
 	def filter_objects(self, objects):
 		filtered_objs = {}
-		project_reqs = re.compile('^requirements/[^/]+/.+\.yml$')
 		for obj in objects:
-			if project_reqs.match(obj.source()):
+			if obj.source() == 'requirements/project.yml':
+				filtered_objs['_PROJECT_'] = obj
+			else:
 				obj_type = obj.get('Type')
 				if obj_type is not None:
 					if not filtered_objs.get(obj_type):
 						filtered_objs[obj_type] = []
 					filtered_objs[obj_type].append( obj )
-			elif obj.source() == 'requirements/project.yml':
-				filtered_objs['_PROJECT_'] = obj
 		return filtered_objs
 	
 	def append_product_section(self, title, index=None):
@@ -63,3 +62,39 @@ class SupplementarySpecification(ThotDocument):
 		self.append_project_section("Licensing Requirements", "License")
 		self.append_project_section("Legal, Copyright and Other Notices", "Copyrights")
 		self.append_project_section("Applicable Standards", "Standards")
+
+class SingleRequirementDocument(ThotDocument):
+
+	def __init__(self, requirement):
+		filepath = requirement.source().replace('.yml', '.rst')
+		title = requirement.get('Name')
+		super(SingleRequirementDocument, self).__init__(filepath, title)
+		self.requirement = requirement
+
+	def build(self):
+		try:
+			self.start("section")
+			self.append("title", "Category")
+			self.append("paragraph", self.requirement.get("Type"))
+			self.end() # section
+
+			self.start("section")
+			self.append("title", "Description")
+			self.append_raw( self.requirement.get('Description') )
+			self.end() # section
+
+			usecases = self.requirement.get('Implemented By')
+			self.start("section")
+			self.append("title", "Use Cases implementing this requirement")
+			if usecases is not None:
+				self.start("bullet_list", bullet="*")
+				for uc in usecases:
+					self.start("list_item")
+					self.append("paragraph", ":doc:`%s`" % "/".join(uc))
+					self.end() # bullet_list
+				self.end() # bullet_list
+			else:
+				self.append("paragraph", "No use cases implements this feature.")
+			self.end() #section
+		except:
+			pass
