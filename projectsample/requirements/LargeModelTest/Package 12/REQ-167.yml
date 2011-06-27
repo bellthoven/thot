@@ -1,0 +1,28 @@
+Description: This is non-functional requirement 7 for package Package 12
+Implemented By:
+- - LargeModelTest
+  - Package 12
+  - UC-226
+- - LargeModelTest
+  - Package 12
+  - UC-229
+- - LargeModelTest
+  - Package 12
+  - UC-230
+- - LargeModelTest
+  - Package 12
+  - UC-232
+- - LargeModelTest
+  - Package 12
+  - UC-235
+- - LargeModelTest
+  - Package 12
+  - UC-237
+- - LargeModelTest
+  - Package 12
+  - UC-238
+- - LargeModelTest
+  - Package 12
+  - UC-239
+Name: This is non-functional requirement 7 for package Package 12
+Type: Performance

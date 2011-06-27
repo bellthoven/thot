@@ -1,0 +1,19 @@
+Description: This is non-functional requirement 8 for package Package 11
+Implemented By:
+- - LargeModelTest
+  - Package 11
+  - UC-204
+- - LargeModelTest
+  - Package 11
+  - UC-206
+- - LargeModelTest
+  - Package 11
+  - UC-212
+- - LargeModelTest
+  - Package 11
+  - UC-213
+- - LargeModelTest
+  - Package 11
+  - UC-215
+Name: This is non-functional requirement 8 for package Package 11
+Type: Performance

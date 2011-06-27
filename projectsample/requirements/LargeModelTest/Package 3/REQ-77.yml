@@ -1,0 +1,10 @@
+Description: This is non-functional requirement 7 for package Package 3
+Implemented By:
+- - LargeModelTest
+  - Package 3
+  - UC-48
+- - LargeModelTest
+  - Package 3
+  - UC-60
+Name: This is non-functional requirement 7 for package Package 3
+Type: Design Constraint

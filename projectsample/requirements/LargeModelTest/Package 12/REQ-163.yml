@@ -1,0 +1,13 @@
+Description: This is non-functional requirement 3 for package Package 12
+Implemented By:
+- - LargeModelTest
+  - Package 12
+  - UC-224
+- - LargeModelTest
+  - Package 12
+  - UC-233
+- - LargeModelTest
+  - Package 12
+  - UC-240
+Name: This is non-functional requirement 3 for package Package 12
+Type: Functional

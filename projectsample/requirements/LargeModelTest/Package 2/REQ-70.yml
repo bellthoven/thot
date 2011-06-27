@@ -1,0 +1,31 @@
+Description: This is non-functional requirement 10 for package Package 2
+Implemented By:
+- - LargeModelTest
+  - Package 2
+  - UC-21
+- - LargeModelTest
+  - Package 2
+  - UC-24
+- - LargeModelTest
+  - Package 2
+  - UC-26
+- - LargeModelTest
+  - Package 2
+  - UC-29
+- - LargeModelTest
+  - Package 2
+  - UC-31
+- - LargeModelTest
+  - Package 2
+  - UC-34
+- - LargeModelTest
+  - Package 2
+  - UC-35
+- - LargeModelTest
+  - Package 2
+  - UC-38
+- - LargeModelTest
+  - Package 2
+  - UC-39
+Name: This is non-functional requirement 10 for package Package 2
+Type: Usability

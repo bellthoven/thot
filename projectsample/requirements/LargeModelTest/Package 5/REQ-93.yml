@@ -1,0 +1,13 @@
+Description: This is non-functional requirement 3 for package Package 5
+Implemented By:
+- - LargeModelTest
+  - Package 5
+  - UC-85
+- - LargeModelTest
+  - Package 5
+  - UC-92
+- - LargeModelTest
+  - Package 5
+  - UC-98
+Name: This is non-functional requirement 3 for package Package 5
+Type: Usability

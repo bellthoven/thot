@@ -1,0 +1,10 @@
+Description: This is non-functional requirement 3 for package Package 2
+Implemented By:
+- - LargeModelTest
+  - Package 2
+  - UC-25
+- - LargeModelTest
+  - Package 2
+  - UC-30
+Name: This is non-functional requirement 3 for package Package 2
+Type: Functional

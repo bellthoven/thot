@@ -1,0 +1,33 @@
+Actors:
+- - LargeModelTest
+  - Package 5
+  - Actor 5-1
+Description: This is Use case 5-9.  This is the description for the use case.  It's
+  a fairly uninteresting description as far as descriptions go, but the purpose is
+  to give it something in order to create a large use case model.  This is the end
+  of the use case description.
+Name: Use case 5-9
+Scenarios:
+  Description: This is the description of the main success scenario.  In addition
+    to the description, the main success scenario will also have scenario steps and
+    extensions.
+  Extensions:
+    ST-3d4334fc-6739-4e53-afd7-38abfd66e2dc:
+    - This is an extension for step 7.
+    - - This describes what should be done in extension substep 1
+      - This describes what should be done in extension substep 2
+    ST-e8913050-67f3-491d-96f8-c97059f567d4:
+    - This is an extension for step 8.
+    - - This describes what should be done in extension substep 1
+      - This describes what should be done in extension substep 2
+  Steps:
+  - This describes what should be done in step 1
+  - This describes what should be done in step 2
+  - This describes what should be done in step 3
+  - This describes what should be done in step 4
+  - This describes what should be done in step 5
+  - This describes what should be done in step 6
+  - ST-3d4334fc-6739-4e53-afd7-38abfd66e2dc: This describes what should be done in
+      step 7
+  - ST-e8913050-67f3-491d-96f8-c97059f567d4: This describes what should be done in
+      step 8

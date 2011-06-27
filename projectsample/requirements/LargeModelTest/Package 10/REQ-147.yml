@@ -1,0 +1,13 @@
+Description: This is non-functional requirement 7 for package Package 10
+Implemented By:
+- - LargeModelTest
+  - Package 10
+  - UC-192
+- - LargeModelTest
+  - Package 10
+  - UC-193
+- - LargeModelTest
+  - Package 10
+  - UC-198
+Name: This is non-functional requirement 7 for package Package 10
+Type: Functional

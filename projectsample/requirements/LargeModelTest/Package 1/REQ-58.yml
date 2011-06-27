@@ -1,0 +1,16 @@
+Description: This is non-functional requirement 8 for package Package 1
+Implemented By:
+- - LargeModelTest
+  - Package 1
+  - UC-1
+- - LargeModelTest
+  - Package 1
+  - UC-4
+- - LargeModelTest
+  - Package 1
+  - UC-11
+- - LargeModelTest
+  - Package 1
+  - UC-12
+Name: This is non-functional requirement 8 for package Package 1
+Type: Usability

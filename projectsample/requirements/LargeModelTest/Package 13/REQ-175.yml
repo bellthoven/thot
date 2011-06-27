@@ -1,0 +1,7 @@
+Description: This is non-functional requirement 5 for package Package 13
+Implemented By:
+- - LargeModelTest
+  - Package 13
+  - UC-246
+Name: This is non-functional requirement 5 for package Package 13
+Type: Design Constraint

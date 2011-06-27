@@ -1,0 +1,28 @@
+Description: This is non-functional requirement 8 for package Package 12
+Implemented By:
+- - LargeModelTest
+  - Package 12
+  - UC-225
+- - LargeModelTest
+  - Package 12
+  - UC-226
+- - LargeModelTest
+  - Package 12
+  - UC-229
+- - LargeModelTest
+  - Package 12
+  - UC-230
+- - LargeModelTest
+  - Package 12
+  - UC-231
+- - LargeModelTest
+  - Package 12
+  - UC-234
+- - LargeModelTest
+  - Package 12
+  - UC-235
+- - LargeModelTest
+  - Package 12
+  - UC-239
+Name: This is non-functional requirement 8 for package Package 12
+Type: Functional

@@ -1,0 +1,22 @@
+Description: This is non-functional requirement 9 for package Package 13
+Implemented By:
+- - LargeModelTest
+  - Package 13
+  - UC-249
+- - LargeModelTest
+  - Package 13
+  - UC-250
+- - LargeModelTest
+  - Package 13
+  - UC-255
+- - LargeModelTest
+  - Package 13
+  - UC-256
+- - LargeModelTest
+  - Package 13
+  - UC-257
+- - LargeModelTest
+  - Package 13
+  - UC-258
+Name: This is non-functional requirement 9 for package Package 13
+Type: Performance

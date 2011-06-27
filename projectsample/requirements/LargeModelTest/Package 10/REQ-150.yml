@@ -1,0 +1,25 @@
+Description: This is non-functional requirement 10 for package Package 10
+Implemented By:
+- - LargeModelTest
+  - Package 10
+  - UC-185
+- - LargeModelTest
+  - Package 10
+  - UC-187
+- - LargeModelTest
+  - Package 10
+  - UC-188
+- - LargeModelTest
+  - Package 10
+  - UC-190
+- - LargeModelTest
+  - Package 10
+  - UC-196
+- - LargeModelTest
+  - Package 10
+  - UC-199
+- - LargeModelTest
+  - Package 10
+  - UC-200
+Name: This is non-functional requirement 10 for package Package 10
+Type: Performance

@@ -1,0 +1,13 @@
+Description: This is non-functional requirement 2 for package Package 12
+Implemented By:
+- - LargeModelTest
+  - Package 12
+  - UC-223
+- - LargeModelTest
+  - Package 12
+  - UC-227
+- - LargeModelTest
+  - Package 12
+  - UC-240
+Name: This is non-functional requirement 2 for package Package 12
+Type: Usability

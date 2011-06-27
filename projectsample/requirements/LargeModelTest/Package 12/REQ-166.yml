@@ -1,0 +1,19 @@
+Description: This is non-functional requirement 6 for package Package 12
+Implemented By:
+- - LargeModelTest
+  - Package 12
+  - UC-221
+- - LargeModelTest
+  - Package 12
+  - UC-229
+- - LargeModelTest
+  - Package 12
+  - UC-232
+- - LargeModelTest
+  - Package 12
+  - UC-237
+- - LargeModelTest
+  - Package 12
+  - UC-238
+Name: This is non-functional requirement 6 for package Package 12
+Type: Supportability

@@ -1,0 +1,25 @@
+Description: This is non-functional requirement 1 for package Package 3
+Implemented By:
+- - LargeModelTest
+  - Package 3
+  - UC-43
+- - LargeModelTest
+  - Package 3
+  - UC-45
+- - LargeModelTest
+  - Package 3
+  - UC-47
+- - LargeModelTest
+  - Package 3
+  - UC-50
+- - LargeModelTest
+  - Package 3
+  - UC-55
+- - LargeModelTest
+  - Package 3
+  - UC-57
+- - LargeModelTest
+  - Package 3
+  - UC-59
+Name: This is non-functional requirement 1 for package Package 3
+Type: Performance

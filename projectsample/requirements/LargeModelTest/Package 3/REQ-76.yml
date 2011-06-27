@@ -1,0 +1,16 @@
+Description: This is non-functional requirement 6 for package Package 3
+Implemented By:
+- - LargeModelTest
+  - Package 3
+  - UC-46
+- - LargeModelTest
+  - Package 3
+  - UC-48
+- - LargeModelTest
+  - Package 3
+  - UC-56
+- - LargeModelTest
+  - Package 3
+  - UC-60
+Name: This is non-functional requirement 6 for package Package 3
+Type: Usability

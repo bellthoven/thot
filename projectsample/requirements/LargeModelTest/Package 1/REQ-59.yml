@@ -1,0 +1,13 @@
+Description: This is non-functional requirement 9 for package Package 1
+Implemented By:
+- - LargeModelTest
+  - Package 1
+  - UC-1
+- - LargeModelTest
+  - Package 1
+  - UC-4
+- - LargeModelTest
+  - Package 1
+  - UC-11
+Name: This is non-functional requirement 9 for package Package 1
+Type: Functional

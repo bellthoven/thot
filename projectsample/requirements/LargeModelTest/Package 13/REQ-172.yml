@@ -1,0 +1,25 @@
+Description: This is non-functional requirement 2 for package Package 13
+Implemented By:
+- - LargeModelTest
+  - Package 13
+  - UC-241
+- - LargeModelTest
+  - Package 13
+  - UC-242
+- - LargeModelTest
+  - Package 13
+  - UC-243
+- - LargeModelTest
+  - Package 13
+  - UC-245
+- - LargeModelTest
+  - Package 13
+  - UC-251
+- - LargeModelTest
+  - Package 13
+  - UC-252
+- - LargeModelTest
+  - Package 13
+  - UC-253
+Name: This is non-functional requirement 2 for package Package 13
+Type: Design Constraint

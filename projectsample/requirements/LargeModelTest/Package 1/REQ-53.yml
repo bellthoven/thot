@@ -1,0 +1,19 @@
+Description: This is non-functional requirement 3 for package Package 1
+Implemented By:
+- - LargeModelTest
+  - Package 1
+  - UC-2
+- - LargeModelTest
+  - Package 1
+  - UC-15
+- - LargeModelTest
+  - Package 1
+  - UC-17
+- - LargeModelTest
+  - Package 1
+  - UC-18
+- - LargeModelTest
+  - Package 1
+  - UC-20
+Name: This is non-functional requirement 3 for package Package 1
+Type: Reliability

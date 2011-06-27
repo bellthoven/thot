@@ -1,0 +1,19 @@
+Description: This is non-functional requirement 4 for package Package 3
+Implemented By:
+- - LargeModelTest
+  - Package 3
+  - UC-42
+- - LargeModelTest
+  - Package 3
+  - UC-46
+- - LargeModelTest
+  - Package 3
+  - UC-49
+- - LargeModelTest
+  - Package 3
+  - UC-56
+- - LargeModelTest
+  - Package 3
+  - UC-58
+Name: This is non-functional requirement 4 for package Package 3
+Type: Performance

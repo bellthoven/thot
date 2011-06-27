@@ -1,0 +1,28 @@
+Description: This is non-functional requirement 10 for package Package 12
+Implemented By:
+- - LargeModelTest
+  - Package 12
+  - UC-222
+- - LargeModelTest
+  - Package 12
+  - UC-223
+- - LargeModelTest
+  - Package 12
+  - UC-225
+- - LargeModelTest
+  - Package 12
+  - UC-227
+- - LargeModelTest
+  - Package 12
+  - UC-228
+- - LargeModelTest
+  - Package 12
+  - UC-231
+- - LargeModelTest
+  - Package 12
+  - UC-234
+- - LargeModelTest
+  - Package 12
+  - UC-236
+Name: This is non-functional requirement 10 for package Package 12
+Type: Supportability

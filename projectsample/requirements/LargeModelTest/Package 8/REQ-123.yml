@@ -1,0 +1,22 @@
+Description: This is non-functional requirement 3 for package Package 8
+Implemented By:
+- - LargeModelTest
+  - Package 8
+  - UC-142
+- - LargeModelTest
+  - Package 8
+  - UC-145
+- - LargeModelTest
+  - Package 8
+  - UC-146
+- - LargeModelTest
+  - Package 8
+  - UC-148
+- - LargeModelTest
+  - Package 8
+  - UC-151
+- - LargeModelTest
+  - Package 8
+  - UC-153
+Name: This is non-functional requirement 3 for package Package 8
+Type: Performance

@@ -1,0 +1,28 @@
+Description: This is non-functional requirement 10 for package Package 3
+Implemented By:
+- - LargeModelTest
+  - Package 3
+  - UC-41
+- - LargeModelTest
+  - Package 3
+  - UC-44
+- - LargeModelTest
+  - Package 3
+  - UC-47
+- - LargeModelTest
+  - Package 3
+  - UC-51
+- - LargeModelTest
+  - Package 3
+  - UC-52
+- - LargeModelTest
+  - Package 3
+  - UC-53
+- - LargeModelTest
+  - Package 3
+  - UC-54
+- - LargeModelTest
+  - Package 3
+  - UC-57
+Name: This is non-functional requirement 10 for package Package 3
+Type: Reliability

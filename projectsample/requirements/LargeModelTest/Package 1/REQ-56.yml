@@ -1,0 +1,25 @@
+Description: This is non-functional requirement 6 for package Package 1
+Implemented By:
+- - LargeModelTest
+  - Package 1
+  - UC-3
+- - LargeModelTest
+  - Package 1
+  - UC-8
+- - LargeModelTest
+  - Package 1
+  - UC-9
+- - LargeModelTest
+  - Package 1
+  - UC-10
+- - LargeModelTest
+  - Package 1
+  - UC-12
+- - LargeModelTest
+  - Package 1
+  - UC-13
+- - LargeModelTest
+  - Package 1
+  - UC-16
+Name: This is non-functional requirement 6 for package Package 1
+Type: Design Constraint

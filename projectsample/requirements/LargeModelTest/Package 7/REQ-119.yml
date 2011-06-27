@@ -1,0 +1,25 @@
+Description: This is non-functional requirement 9 for package Package 7
+Implemented By:
+- - LargeModelTest
+  - Package 7
+  - UC-123
+- - LargeModelTest
+  - Package 7
+  - UC-128
+- - LargeModelTest
+  - Package 7
+  - UC-129
+- - LargeModelTest
+  - Package 7
+  - UC-130
+- - LargeModelTest
+  - Package 7
+  - UC-133
+- - LargeModelTest
+  - Package 7
+  - UC-135
+- - LargeModelTest
+  - Package 7
+  - UC-136
+Name: This is non-functional requirement 9 for package Package 7
+Type: Performance

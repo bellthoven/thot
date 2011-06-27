@@ -1,0 +1,34 @@
+Description: This is non-functional requirement 10 for package Package 9
+Implemented By:
+- - LargeModelTest
+  - Package 9
+  - UC-161
+- - LargeModelTest
+  - Package 9
+  - UC-164
+- - LargeModelTest
+  - Package 9
+  - UC-165
+- - LargeModelTest
+  - Package 9
+  - UC-166
+- - LargeModelTest
+  - Package 9
+  - UC-167
+- - LargeModelTest
+  - Package 9
+  - UC-172
+- - LargeModelTest
+  - Package 9
+  - UC-173
+- - LargeModelTest
+  - Package 9
+  - UC-174
+- - LargeModelTest
+  - Package 9
+  - UC-178
+- - LargeModelTest
+  - Package 9
+  - UC-179
+Name: This is non-functional requirement 10 for package Package 9
+Type: Performance

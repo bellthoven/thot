@@ -1,0 +1,25 @@
+Description: This is non-functional requirement 8 for package Package 9
+Implemented By:
+- - LargeModelTest
+  - Package 9
+  - UC-162
+- - LargeModelTest
+  - Package 9
+  - UC-164
+- - LargeModelTest
+  - Package 9
+  - UC-170
+- - LargeModelTest
+  - Package 9
+  - UC-172
+- - LargeModelTest
+  - Package 9
+  - UC-175
+- - LargeModelTest
+  - Package 9
+  - UC-177
+- - LargeModelTest
+  - Package 9
+  - UC-179
+Name: This is non-functional requirement 8 for package Package 9
+Type: Performance
