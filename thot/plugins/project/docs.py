@@ -1,4 +1,4 @@
-from thot.docs import ThotDocument,ThotDocumentBuilder
+from thot.docs import ThotDocument
 import os.path
 
 class VisionDocument(ThotDocument):
@@ -15,6 +15,7 @@ class VisionDocument(ThotDocument):
 		for obj in objects:
 			if obj.source() in self._known_files:
 				filtered_objs[obj.source()] = obj
+			if len(filtered_objs) == len(self._known_files): break
 		return filtered_objs
 	
 	def _export_project_data(self):
@@ -68,7 +69,9 @@ class VisionDocument(ThotDocument):
 			for feature in features.get():
 				self.start("definition_list_item")
 				self.append("term", features.get("%s.Name" % feature))
-				self.append("definition", features.get("%s.Description" % feature))
+				self.start("definition")
+				self.append_raw(features.get("%s.Description" % feature))
+				self.end() # definition
 				self.end() # definition_list_item
 			self.end() # definition_list
 			self.end() # section
@@ -76,7 +79,6 @@ class VisionDocument(ThotDocument):
 			pass
 	
 	def build(self):
-		docpath = os.path.join(output, )
 		self._export_project_data()
 		self._export_actors_data()
 		self._export_features_data()
@@ -102,8 +104,10 @@ class Glossary(ThotDocument):
 			glossary = self.objects['glossary.yml']
 			for term in glossary.get():
 				self.start("definition_list_item")
-				self.append("term", glossary.get("%s.Name" % feature))
-				self.append("definition", glossary.get("%s.Description" % feature))
+				self.append("term", term)
+				self.start("definition")
+				self.append_raw(glossary.get(term))
+				self.end() # defintion
 				self.end() # definition_list_item
 			self.end() # definition_list
 		except KeyError:

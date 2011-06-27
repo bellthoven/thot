@@ -33,10 +33,10 @@ class ThotProject(ThotPlugin):
 		errors = []
 		return errors
 	
-	def on_register_documents(self, options):
+	def on_register_documents(self, options, objs):
 		docs = []
 		if options.vision_doc:
-			docs.append(VisionDocument)
+			docs.append(VisionDocument(objs))
 		if options.glossary:
-			docs.append(Glossary)
+			docs.append(Glossary(objs))
 		return docs
