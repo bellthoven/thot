@@ -30,14 +30,7 @@ class Application(object):
 					thot.utils.print_err(result)
 					thot.utils.exit( thot.utils.ERROR_EXIT )
 	
-	def register_documents(self):
-		all_docs = self._event_handler.dispatch('on_register_documents', [self._options])
-		self.documents = []
-		for plugname in all_docs:
-			docs = all_docs[plugname]
-			self.documents.extend(docs)
-	
-	def build_documents(self):
+	def get_yml_objects(self):
 		fs = FileScanner()
 		srcdir = os.path.join(self._options.project_path, self._options.source_dir)
 		foundfiles = fs.scan(srcdir)
@@ -46,8 +39,18 @@ class Application(object):
 			obj = YamlContent.objectify(filepath, srcdir)
 			if obj:
 				objs.append(obj)
-		for doc in self.documents:
-			docinstance = doc(objs)
+		return objs
+	
+	def register_documents(self):
+		objs = self.get_yml_objects()
+		all_docs = self._event_handler.dispatch('on_register_documents', [self._options, objs])
+		self.documents = []
+		for plugname in all_docs:
+			docs = all_docs[plugname]
+			self.documents.extend(docs)
+	
+	def build_documents(self):
+		for docinstance in self.documents:
 			self._event_handler.dispatch('on_before_build_document', [docinstance])
 			docinstance.build()
 			self._event_handler.dispatch('on_after_build_document', [docinstance])
