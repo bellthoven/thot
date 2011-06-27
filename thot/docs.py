@@ -82,7 +82,7 @@ class ThotDocument(ThotDocumentBuilder):
 		rst = ""
 		with  open(xml2rst_file) as xml2rst_xslt:
 			xml2rst = etree.XSLT(etree.parse(xml2rst_xslt, etree.XMLParser()))
-			xml = etree.parse(StringIO(str(document)), etree.XMLParser())
+			xml = etree.parse(StringIO(unicode(document)), etree.XMLParser())
 			rst = xml2rst( xml );
 		return rst
 
@@ -95,4 +95,3 @@ class ThotDocument(ThotDocumentBuilder):
 	def export(self, output):
 		rstcontent = self.generate_rst(self.root)
 		self.create_file(os.path.join(output, self.root['source']), rstcontent)
-
